@@ -16,7 +16,7 @@ El objetivo es transformar los datos de cada partido en estadísticas útiles y,
 | Torneos | 16 |
 | Rivales | 59 |
 | Eventos registrados (goles, amarillas y rojas) | 531 |
-| Views de estadísticas | 20 |
+| Views de estadísticas | 28 |
 
 ---
 
@@ -142,7 +142,7 @@ erDiagram
 
 ## 🔎 Views destacadas
 
-La base cuenta con **20 views** que calculan las estadísticas directamente a partir de los datos.
+La base cuenta con **28 views** que calculan las estadísticas directamente a partir de los datos.
 
 ### Club
 
@@ -155,6 +155,9 @@ La base cuenta con **20 views** que calculan las estadísticas directamente a pa
 | `partidos_penales` | Partidos definidos por penales, con el marcador de la tanda y el ganador |
 | `rachas_club` | Rachas históricas de victorias, derrotas, invicto y partidos seguidos marcando |
 | `palmares_club` | Títulos obtenidos, con torneo y temporada |
+| `goleadas_club` | Mayores goleadas a favor y en contra (diferencia de 3 o más goles) |
+| `goleadores_diferentes_temporada` | Cantidad de goleadores distintos por temporada y su aporte a los goles del equipo |
+| `evolucion_club` | Evolución partido a partido: victorias, empates, derrotas, goles y % de victorias acumulados |
 
 ### Jugadores
 
@@ -169,6 +172,10 @@ La base cuenta con **20 views** que calculan las estadísticas directamente a pa
 | `multiples_goles_partido` | Partidos con 2 o más goles de un jugador: dobletes, hat-tricks, pókeres, etc. |
 | `palmares_jugadores` | Títulos de cada jugador según su participación en los torneos ganados |
 | `rendimiento_club_con_jugador` | Resultados y porcentajes del equipo en los partidos que jugó cada jugador |
+| `trayectoria_jugadores` | Debut, último partido, temporadas, días de actividad y etapas separadas por inactividad |
+| `partidos_con_gol_jugador` | Partidos con gol de cada jugador, % de partidos con gol y promedio de goles cuando marca |
+| `disciplina_jugadores` | Amarillas, rojas, partidos con sanción y frecuencia de tarjetas cada 10 partidos |
+| `rendimiento_arqueros` | Estadísticas de arqueros: partidos, resultados, vallas invictas, goles recibidos y promedios |
 
 ### Relaciones entre jugadores
 
@@ -177,6 +184,7 @@ La base cuenta con **20 views** que calculan las estadísticas directamente a pa
 | `duplas_goleador_asistente` | Goles de un jugador asistidos por otro, distinguiendo quién convirtió y quién asistió |
 | `duplas_goleadoras` | Parejas que más goles generaron entre ambos, en las dos direcciones |
 | `jugadores_mas_partidos_juntos` | Cantidad de partidos que jugó junta cada pareja de jugadores |
+| `companeros_frecuentes` | Ranking de compañeros más frecuentes de cada jugador y % de partidos jugados juntos |
 
 ### Partidos
 
@@ -254,8 +262,7 @@ psql -d inter_nados -f data/datos.sql
 ## 🚀 Próximos pasos
 
 - [x] Modelo de datos y carga de 125 partidos
-- [x] 20 views de estadísticas
-- [ ] Nuevas views (8 en desarrollo)
+- [x] 28 views de estadísticas
 - [ ] API REST con Java + Spring Boot
 - [ ] Dashboard en Power BI
 - [ ] Sitio web público del club
